@@ -14,6 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
+
             $table->id();
             $table->string('name');
             $table->string('email', 191)->unique();
