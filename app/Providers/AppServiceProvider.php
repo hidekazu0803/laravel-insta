@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
 
         Gate::define('admin',function($user){
             return $user->role_id === User::ADMIN_ROLE_ID
@@ -36,7 +37,5 @@ class AppServiceProvider extends ServiceProvider
         });
         //
         paginator::useBootstrap();
-
-        Schema::defaultStringLength(191);
     }
 }
